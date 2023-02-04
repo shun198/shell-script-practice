@@ -102,7 +102,7 @@ bbb
 
 ## rm
 
-ファイルを削除
+ファイル(ディレクトリ)を削除
 
 ```
 bash-5.2# ls | grep file.txt
@@ -111,6 +111,14 @@ bash-5.2# rm file.txt
 bash-5.2# ls | grep file.txt
 bash-5.2#
 ```
+
+### オプション
+
+| オプション              | 説明                       |
+| ----------------------- | -------------------------- |
+| rm -f <ファイル名>      | ファイルを強制的に削除     |
+| rm -r <ディレクトリ名>  | ディレクトリを削除         |
+| rm -rf <ディレクトリ名> | ディレクトリを強制的に削除 |
 
 ## rmdir
 
@@ -122,4 +130,26 @@ dir1
 bash-5.2# rmdir dir1
 bash-5.2# ls | grep dir1
 bash-5.2#
+```
+
+## mv
+
+ファイルの移動、ファイル名の変更
+
+### ファイルの移動
+
+```
+bash-5.2# ls | grep file.txt
+file.txt
+bash-5.2# mv file.txt var
+bash-5.2# ls var | grep file.txt
+file.txt
+```
+
+### ファイル名の変更
+
+```
+bash-5.2# mv file.txt file2.txt
+bash-5.2# ls | grep file
+file2.txt
 ```
