@@ -25,6 +25,25 @@ bash-5.2# ls
 bin dev etc home lib media mnt opt proc root run sbin srv sys tmp usr var
 ```
 
+## pwd
+
+現在のディレクトリを表示します
+
+```
+bash-5.2# pwd
+/
+```
+
+## cd
+
+ディレクトリの位置を変更します
+
+```
+bash-5.2# cd bin
+bash-5.2# pwd
+/bin
+```
+
 ## mkdir
 
 ディレクトリを作成します
