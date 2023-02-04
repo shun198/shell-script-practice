@@ -99,3 +99,27 @@ bash-5.2# cat file1
 aaa
 bbb
 ```
+
+## rm
+
+ファイルを削除
+
+```
+bash-5.2# ls | grep file.txt
+file.txt
+bash-5.2# rm file.txt
+bash-5.2# ls | grep file.txt
+bash-5.2#
+```
+
+## rmdir
+
+空のディレクトリを削除
+
+```
+bash-5.2# ls | grep dir1
+dir1
+bash-5.2# rmdir dir1
+bash-5.2# ls | grep dir1
+bash-5.2#
+```
