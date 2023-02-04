@@ -1,6 +1,7 @@
 prepare:
 	docker pull centos:centos7
 	docker run -it -d --name centos bash
+	docker exec -it centos bash
 
 run:
 	docker run -it -d --name centos bash
