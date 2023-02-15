@@ -11,3 +11,6 @@ ssh:
 
 status:
 	vagrant status
+
+halt:
+	vagrant halt
