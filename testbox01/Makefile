@@ -1,5 +1,7 @@
-prepare:
+add:
 	vagrant box add jasonc/centos7
+
+prepare:
 	vagrant init jasonc/centos7
 	vagrant up
 
