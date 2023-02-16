@@ -16,3 +16,6 @@ status:
 
 halt:
 	vagrant halt
+
+reload:
+	vagrant reload
