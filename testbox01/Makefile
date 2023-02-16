@@ -1,9 +1,8 @@
 add:
 	vagrant box add jasonc/centos7
 
-prepare:
+init:
 	vagrant init jasonc/centos7
-	vagrant up
 
 up:
 	vagrant up
@@ -19,3 +18,6 @@ halt:
 
 reload:
 	vagrant reload
+
+destroy:
+	vagrant destroy -f
