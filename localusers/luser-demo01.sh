@@ -1,3 +1,4 @@
 #!/bin/bash
 
-# Hello from the main OS.
+# Execute hello
+echo 'Hello'

@@ -153,3 +153,10 @@ bash-5.2# mv file.txt file2.txt
 bash-5.2# ls | grep file
 file2.txt
 ```
+
+## ディレクトリ
+
+```
+./ # カレントディレクトリ
+../ # 一つ上のディレクトリ
+```
