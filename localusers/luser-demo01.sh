@@ -12,3 +12,7 @@ echo "$WORD"
 echo '$WORD'
 
 echo "This is a shell $WORD"
+
+WORD='shell'
+
+echo "$WORD"

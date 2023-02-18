@@ -150,6 +150,8 @@ echo '$WORD' # $WORD
 
 echo "This is a shell $WORD" # This is a shell script
 
-ENDING='ed'
+# 変数の上書きも可能
+WORD='shell'
 
+echo "$WORD"
 ```
