@@ -26,7 +26,7 @@ cat /etc/shells
 
 bash のパスである`/bin/bash`を指定すると以下のようになります
 
-```shell
+```bash
 #!/bin/bash
 ```
 
@@ -42,7 +42,7 @@ bash のパスである`/bin/bash`を指定すると以下のようになりま�
 
 コメントを書く際は`#`を使用します
 
-```shell
+```bash
 # コメントを追記
 ```
 
@@ -50,13 +50,13 @@ bash のパスである`/bin/bash`を指定すると以下のようになりま�
 
 標準出力
 
-```
+```bash
 echo 'Hello'
 ```
 
 ## exit
 
-```
+```bash
 exit 0
 ```
 
@@ -125,13 +125,13 @@ chmod 755
 型を定義せずに変数を定義できます
 変数名は全て大文字が推奨されています
 
-```
+```bash
 WORD='script'
 ```
 
 ただし、以下の変数名は NG
 
-```
+```bash
 3WORD
 A-WORD
 E@mail
@@ -139,7 +139,7 @@ E@mail
 
 変数内の値を標準出力する際は `echo "$(変数名)"`とする
 
-```
+```bash
 WORD='script'
 
 # ダブルクォートで指定
@@ -155,3 +155,106 @@ WORD='shell'
 
 echo "$WORD"
 ```
+
+## if 文
+
+if 文を書く際は
+
+```bash
+if [ 条件式 ]
+then
+    条件式に該当する処理
+```
+
+という風に記載します
+[]と条件式の間に必ず半角スペースを入れないと実行されないので注意です
+
+```bash
+#!/bin/bash
+
+# Display the UID and username of the user executing this script
+# Display if the user is the root user or not
+
+# Display UID
+echo "Your UID is $UID"
+
+# Display username
+USERNAME=$(id -un)
+# USERNAME=`id -un`でも同じ出力結果
+echo "Your username is $USERNAME"
+
+# Display if user is root or not
+# 古い書き方
+# 条件式を書くときは条件を[[]]内に書く
+# -eq はequalの意味
+# 0 はexit code0の時
+# rootユーザのUIDは0
+if [[ ${UID} -eq 0 ]]
+then
+    echo 'You are root'
+else
+    echo 'You are not root'
+fi
+
+# 条件式を書くときは[]でも[[]]と同じ
+# =でも-eqと同じ意味になる
+if [ ${UID} = 0 ]
+then
+    echo 'You are root'
+else
+    echo 'You are not root'
+fi
+```
+
+ルート以外のユーザで下記の条件式を実行します
+
+```
+./luser-demo02.sh
+```
+
+以下のような実行結果になります
+
+```
+Your UID is 1000
+Your username is vagrant
+You are not root
+```
+
+ルートユーザで下記の条件式を実行します
+
+```
+sudo ./luser-demo02.sh
+```
+
+以下のような実行結果になります
+
+```
+Your UID is 0
+Your username is root
+You are root
+```
+
+### 数字の比較
+
+| 比較演算子(shell) | 比較演算子(数式) | 説明                                  |
+| ----------------- | ---------------- | ------------------------------------- |
+| 数値 1 -eq 数値 2 | =                | 数値 1 と数値 2 が等しければ True     |
+| 数値 1 -ne 数値 2 | !=、<>           | 数値 1 と数値 2 が等しくなければ True |
+| 数値 1 -gt 数値 2 | >                | 数値 1 と数値 2 よりも大きければ True |
+| 数値 1 -ge 数値 2 | >=               | 数値 1 が数値 2 以上であれば True     |
+| 数値 1 -lt 数値 2 | <                | 数値 1 が数値 2 よりも小さければ True |
+| 数値 1 -le 数値 2 | <=               | 数値 1 が数値 2 以下であれば True     |
+
+### 文字列の比較
+
+| 比較演算子(shell)    | 説明                                      |
+| -------------------- | ----------------------------------------- |
+| 文字列 1 = 文字列 2  | 文字列 1 と文字列 2 が等しければ True     |
+| 文字列 1 != 文字列 2 | 文字列 1 と文字列 2 が等しくなければ True |
+| -n 文字列            | 文字列の長さが 1 以上であれば True        |
+| -z 文字列            | 文字列の長さが 0 であれば True            |
+
+## exit code
+
+シェルスクリプトを実行した際に exit code が返される
+成功したら 0,失敗したら 1 の exit code が返される
