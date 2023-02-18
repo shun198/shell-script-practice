@@ -114,8 +114,42 @@ chmod 755
 
 ## シェルスクリプトの実行
 
-カレントディレクトリ内のシェルスクリプト
+カレントディレクトリ内のシェルスクリプトを指定します
 
 ```
 ./luser-demo01.sh
+```
+
+## 変数
+
+型を定義せずに変数を定義できます
+変数名は全て大文字が推奨されています
+
+```
+WORD='script'
+```
+
+ただし、以下の変数名は NG
+
+```
+3WORD
+A-WORD
+E@mail
+```
+
+変数内の値を標準出力する際は `echo "$(変数名)"`とする
+
+```
+WORD='script'
+
+# ダブルクォートで指定
+echo "$WORD" # script
+
+# シングルクォートだと変数の値ではなく、変数名が出力される
+echo '$WORD' # $WORD
+
+echo "This is a shell $WORD" # This is a shell script
+
+ENDING='ed'
+
 ```
