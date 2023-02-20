@@ -258,3 +258,7 @@ You are root
 
 シェルスクリプトを実行した際に exit code が返される
 成功したら 0,失敗したら 1 の exit code が返される
+
+## read
+
+標準入力をする際に read を使います
