@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -eux
 # This script displays various information to the screen.
 
 
