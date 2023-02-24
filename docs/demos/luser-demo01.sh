@@ -1,7 +1,6 @@
 #!/bin/bash
-set -eux
+set -eu
 # This script displays various information to the screen.
-
 
 # Display 'Hello'
 echo 'Hello'

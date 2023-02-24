@@ -262,3 +262,18 @@ You are root
 ## read
 
 標準入力をする際に read を使います
+
+## for
+
+```bash
+for fruits in "apple" "banana" "melon"
+do
+    echo $fruits
+done
+```
+
+```
+apple
+banana
+melon
+```
